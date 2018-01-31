@@ -11,6 +11,11 @@ Vue.use(Router);
 export default new Router({
   routes: [
     {
+      path: '/',
+      name: 'home',
+      component: Borrow
+    },
+    {
       path: '/Borrow',
       name: 'Borrow',
       component: Borrow
