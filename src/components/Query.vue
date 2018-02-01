@@ -8,9 +8,9 @@
         <template v-for="loan in loans">
           <mu-list-item :title="loan.phone + ' ' + loan.name + ' ' + loan.city" :describeText="formatTime(loan.time) + ' ' + loan.amount + '万元'">
             <mu-icon :color="getGenderColor(loan.gender)"slot="left" value="person"></mu-icon>
-            <mu-avatar slot="right" :size="24" src="/static/img/rongzi_logo.png" backgroundColor="transparent" :class="{ disable: hasNoChannel(loan.tasks, 20)}"></mu-avatar>
-            <mu-avatar slot="right" :size="24" src="/static/img/niwodai_logo.png" backgroundColor="transparent" :class="{ disable: hasNoChannel(loan.tasks, 30)}"></mu-avatar>
-            <mu-avatar slot="right" :size="24" src="/static/img/haodai_logo.png" backgroundColor="transparent" :class="{ disable: hasNoChannel(loan.tasks, 10)}"></mu-avatar>
+            <mu-avatar slot="right" :size="24" src="/static/img/rongzi_logo.png" backgroundColor="transparent" :class="{ disable: !hasSuccessChannelTask(loan.tasks, 20)}"></mu-avatar>
+            <mu-avatar slot="right" :size="24" src="/static/img/niwodai_logo.png" backgroundColor="transparent" :class="{ disable: !hasSuccessChannelTask(loan.tasks, 30)}"></mu-avatar>
+            <mu-avatar slot="right" :size="24" src="/static/img/haodai_logo.png" backgroundColor="transparent" :class="{ disable: !hasSuccessChannelTask(loan.tasks, 10)}"></mu-avatar>
           </mu-list-item>
         </template>
       </mu-list>
@@ -84,11 +84,11 @@
       }
     },
     methods: {
-      hasNoChannel(tasks, channelId) {
+      hasSuccessChannelTask(tasks, channelId) {
         let t = _.filter(tasks, it => {
-          return it.channelid === channelId && it.state === 2
+          return it.channelid === channelId && it.state === 3
         }).length > 0;
-        return !t;
+        return t;
       },
       loadData()  {
         return (async() => {
