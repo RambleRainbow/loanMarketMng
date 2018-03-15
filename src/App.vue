@@ -24,7 +24,7 @@
         navDefs: {
           "home": {title: "首页", icon: "home", route: "/Borrow"},
           "query": {title: "查询", icon: "search", route: "/query"},
-          "statistic": {title: "统计", icon: "insert_chart", route: "/Borrow"},
+          "statistic": {title: "统计", icon: "insert_chart", route: "/statistic"},
           "setting": {title: "设置", icon: "settings", route: "/settings"}
         },
         bottomNav: 'home',

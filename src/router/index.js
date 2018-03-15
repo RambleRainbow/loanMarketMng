@@ -5,6 +5,7 @@ import Manage from '@/components/Manage'
 import Borrow from '@/components/Borrow'
 import Settings from '@/components/Settings'
 import Query from '@/components/Query'
+import Statistic from '@/components/Statistic'
 
 Vue.use(Router);
 
@@ -29,6 +30,11 @@ export default new Router({
       path: '/query',
       name: 'Query',
       component: Query
+    },
+    {
+      path: '/statistic',
+      name: 'Statistic',
+      component: Statistic
     }
   ]
 })

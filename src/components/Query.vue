@@ -1,5 +1,5 @@
 <template>
-  <div id="#query">
+  <div>
     <mu-date-picker v-model="dateQuery" icon="edit" label="查询日期" :labelFloat="true" hintText="请选择查询日期"
                     :fullWidth="true"/>
     <div class="list-container" ref="list">
